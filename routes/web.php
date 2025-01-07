@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -21,4 +19,4 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('contacts', ContactController::class);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
