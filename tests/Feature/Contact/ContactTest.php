@@ -7,4 +7,5 @@ test('contact page is displayed', function (): void {
         ->get('/contacts');
 
     $response->assertOk();
+    $response->assertSee('Contact Us');
 });
