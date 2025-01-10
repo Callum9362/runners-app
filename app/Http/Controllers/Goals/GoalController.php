@@ -5,12 +5,19 @@ namespace App\Http\Controllers\Goals;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class GoalController extends Controller
 {
     public function index(): View
     {
-        return view('goals.index');
+        $goals = Auth::user()
+            ->goals()
+            ->orderBy("created_at", "desc")
+            ->get();
+
+        return view('goals.index')
+            ->with('goals', $goals);
     }
 
     public function create(): View
