@@ -4,7 +4,7 @@ use App\Models\User;
 
 uses()->group("goals");
 
-test('goals page is displayed', function () {
+test('goals page is displayed', function (): void {
     $user = User::factory()->create();
 
     $response = $this
