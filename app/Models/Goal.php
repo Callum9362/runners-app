@@ -16,6 +16,7 @@ class Goal extends Model
         'status',
         'priority',
         'due_date',
+        'user_id',
     ];
 
     public function user(): BelongsTo

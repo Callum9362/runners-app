@@ -13,9 +13,20 @@ test('goals page is displayed', function (): void {
 
     $response = $this
         ->actingAs($user)
-        ->get('/goals');
+        ->get(route('goals.index'));
 
     $response->assertOk();
     $response->assertSee('Goals');
     $response->assertSee($goal->title);
+});
+
+test('create goals page is displayed', function (): void {
+    $user = User::factory()->create();
+
+    $response = $this
+        ->actingAs($user)
+        ->get(route('goals.create'));
+
+    $response->assertOk();
+    $response->assertSee('Create Goals');
 });

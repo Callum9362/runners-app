@@ -6,8 +6,8 @@ use Livewire\Component;
 
 class ToastNotification extends Component
 {
-    public $message;
-    public $type;
+    public string $message = "";
+    public string $type = "";
 
     protected $listeners = [
         'notify' => 'showNotification',
