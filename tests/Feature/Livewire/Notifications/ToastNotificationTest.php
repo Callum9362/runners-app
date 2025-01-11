@@ -14,7 +14,6 @@ test('it shows success notification', function (): void {
             'Operation was successful!',
         );
 
-
     $result->assertSet('type', 'success');
     $result->assertSet('message', 'Operation was successful!');
     $result->assertSee('Operation was successful!');
@@ -28,7 +27,6 @@ test('it shows fail notification', function (): void {
             'fail',
             'Operation failed!',
         );
-
 
     $result->assertSet('type', 'fail');
     $result->assertSet('message', 'Operation failed!');
