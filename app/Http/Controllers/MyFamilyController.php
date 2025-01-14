@@ -8,7 +8,6 @@ class MyFamilyController extends Controller
 {
     public function index(): View
     {
-        dd(auth()->user()->family);
         return view("families.index")
             ->with("family", auth()->user()->family);
     }

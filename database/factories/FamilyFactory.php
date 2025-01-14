@@ -12,7 +12,6 @@ class FamilyFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
             'family_name' => $this->faker->lastName . 's',
         ];
     }
