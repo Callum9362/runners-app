@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Goals\GoalController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MyFamilyController;
+use App\Http\Controllers\Goals\GoalController;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -18,6 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('goals', GoalController::class);
+    Route::resource('family', MyFamilyController::class);
 });
 
 Route::resource('contacts', ContactController::class);

@@ -42,6 +42,10 @@
                             {{ __('Goals') }}
                         </x-dropdown-link>
 
+                        <x-dropdown-link :href="route('family.index')">
+                            {{ __('My Family') }}
+                        </x-dropdown-link>
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
