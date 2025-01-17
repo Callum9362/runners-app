@@ -22,6 +22,10 @@
         </div>
     @endif
 
+    <p class="px-4 py-2 mt-4 text-lg font-semibold text-white bg-blue-500 rounded-lg">
+        You currently have {{ $goals->count() }} goals.
+    </p>
+
     <div class="py-12">
         <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
             @forelse($goals as $goal)

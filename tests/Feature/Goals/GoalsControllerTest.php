@@ -2,11 +2,15 @@
 
 use App\Models\Goal;
 use App\Models\User;
+use App\Models\Family;
 
 uses()->group("goals");
 
 test('goals page is displayed', function (): void {
-    $user = User::factory()->create();
+    $family = Family::factory()->create();
+    $user = User::factory()->create([
+        'family_id' => $family->id,
+    ]);
     $goal = Goal::factory()->create([
         'user_id' => $user->id,
     ]);
@@ -18,7 +22,8 @@ test('goals page is displayed', function (): void {
     $response->assertOk();
     $response->assertSee('Goals');
     $response->assertSee($goal->title);
-});
+    $response->assertSee("You currently have 1 goals.");
+})->only();
 
 test('create goals page is displayed', function (): void {
     $user = User::factory()->create();
