@@ -13,4 +13,10 @@
 
     <p>{{ $family->family_name }}
 
+    @forelse($members as $member)
+        <p>{{ $member->name }}</p>
+    @empty
+        <p>No members found.</p>
+    @endforelse
+
 </x-app-layout>
