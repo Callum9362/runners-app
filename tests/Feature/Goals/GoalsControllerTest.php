@@ -23,7 +23,7 @@ test('goals page is displayed', function (): void {
     $response->assertSee('Goals');
     $response->assertSee($goal->title);
     $response->assertSee("You currently have 1 goals.");
-})->only();
+});
 
 test('create goals page is displayed', function (): void {
     $user = User::factory()->create();
