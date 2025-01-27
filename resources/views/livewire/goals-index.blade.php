@@ -8,7 +8,7 @@
         <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
             @forelse($goals as $goal)
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
+                    <div class="relative p-6 bg-white border-b border-gray-200">
                         <h2 class="text-xl font-semibold leading-tight text-gray-800">
                             {{ $goal->title }}
                         </h2>
@@ -16,9 +16,9 @@
                         <button
                             wire:click="delete({{ $goal }})"
                             wire:confirm="Are you sure you want to delete this goal?"
-                            class="mt-2 mr-2 text-red-500 hover:text-red-700"
+                            class="absolute text-red-500 top-2 right-2 hover:text-red-700"
                         >
-                            <x-heroicon-o-trash class="w-3 h-3" /> Delete
+                            <x-heroicon-o-trash class="w-5 h-5" />
                         </button>
                     </div>
                 </div>
