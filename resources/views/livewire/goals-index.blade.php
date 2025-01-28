@@ -20,6 +20,12 @@
                         >
                             <x-heroicon-o-trash class="w-5 h-5" />
                         </button>
+                        <a
+                            href="{{ route('goals.edit', $goal) }}"
+                            class="absolute top-2 right-5"
+                        >
+                            <x-heroicon-o-pencil class="w-5 h-5" />
+                        </a>
                     </div>
                 </div>
             @empty

@@ -35,3 +35,17 @@ test('create goals page is displayed', function (): void {
     $response->assertOk();
     $response->assertSee('Create Goals');
 });
+
+test('edit goals page is displayed', function (): void {
+    $user = User::factory()->create();
+    $goal = Goal::factory()->create([
+        'user_id' => $user->id,
+    ]);
+
+    $response = $this
+        ->actingAs($user)
+        ->get(route('goals.edit', $goal));
+
+    $response->assertOk();
+    $response->assertSee('Edit Goal');
+});
