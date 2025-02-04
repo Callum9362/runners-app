@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Goal;
 use Livewire\Component;
+use App\Events\GoalCreated;
 
 class CreateGoal extends Component
 {
@@ -25,7 +26,7 @@ class CreateGoal extends Component
     {
         $this->validate();
 
-        Goal::create([
+        $goal = Goal::create([
             'title' => $this->title,
             'description' => $this->description,
             'status' => $this->status,
@@ -33,6 +34,8 @@ class CreateGoal extends Component
             'due_date' => $this->due_date,
             'user_id' => auth()->id(),
         ]);
+
+        GoalCreated::dispatch($goal);
 
         $this->reset();
 

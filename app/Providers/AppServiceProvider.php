@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Listeners\SendGoalCreatedNotification;
 use Livewire\Component;
+use App\Events\GoalCreated;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,5 +26,10 @@ class AppServiceProvider extends ServiceProvider
         Component::macro('notify', function ($message, $type = 'success'): void {
             $this->dispatch('notify', ['message' => $message, 'type' => $type]);
         });
+
+        Event::listen(
+            GoalCreated::class,
+            SendGoalCreatedNotification::class,
+        );
     }
 }
